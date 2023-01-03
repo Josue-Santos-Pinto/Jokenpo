@@ -2,7 +2,7 @@ import React,{useEffect} from "react";
 import styled from "styled-components/native";
 
 const Container = styled.View`
-    flex: 1;
+    height: 220px;
     padding: 20px;
 `
 const Title = styled.Text`
@@ -44,9 +44,7 @@ export default ({playerName,playerScore,computerScore}) => {
 
     playerName = playerName.length > 12 ? `${playerName.slice(0,8)}...` : playerName
 
-    useEffect(()=>{
-        console.log(playerName)
-    },[])
+    
 
     return (
         <Container>
@@ -56,7 +54,7 @@ export default ({playerName,playerScore,computerScore}) => {
             {/* Player Score */}
 
                 <Score>
-                    <Name>{playerName != undefined ? playerName : 'Jogador'}</Name>
+                    <Name>{playerName}</Name>
                     <Points>{playerScore}</Points>
                 </Score>
 
