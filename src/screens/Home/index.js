@@ -41,7 +41,8 @@ export default () => {
         if(playerName === 'Jogador'){
             alert('Insira o nome do Jogador')
         } 
-        if(playGame) return resetValues()    
+        if(playGame) return resetValues()
+        if(playerName != 'Jogador')    
         setPlayGame(true)
         
     }
@@ -94,7 +95,6 @@ export default () => {
 
    const resetValues = () => {
         setTextGame('Iniciar o jogo')
-        setPlayerName('Jogador')
         setPlayGame(false)
         setScorePlayerValue(0)
         setScoreComputerValue(0)
@@ -111,7 +111,8 @@ export default () => {
                 <C.InputName 
                     placeholder='Insira o nome de jogador'
                     onChangeText={(value)=>handleUserName(value)}
-
+                    editable={!playGame}
+                    selectTextOnFocus={!playGame}
                 />
                 <C.StartButton onPress={startGame}>
                     <C.StartButtonText>{`${!playGame ? 'Iniciar' : 'Parar'}`}</C.StartButtonText>
